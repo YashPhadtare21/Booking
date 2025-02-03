@@ -1,23 +1,23 @@
 import { createContext } from "react";
 import { doctors } from "../assets/assets";
 
-export const AppContext = createContext()
+export const AppContext = createContext();
 
-const AppContextProvider = (props) => {
-
-    const currencySymbol = '$'
+const AppContextProvider = ({ children }) => {
+    const url = "https://booking-1-94bc.onrender.com/";
+    const currencySymbol = "$";
 
     const value = {
         doctors,
-        currencySymbol
-    }
+        currencySymbol,
+        url,  // Added url to context
+    };
 
     return (
         <AppContext.Provider value={value}>
-            {props.children}
+            {children}
         </AppContext.Provider>
-    )
+    );
+};
 
-}
-
-export default AppContextProvider
+export default AppContextProvider;
